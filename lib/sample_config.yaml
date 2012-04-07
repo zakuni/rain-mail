@@ -1,0 +1,9 @@
+# sample of Gmail
+smtp_server: smtp.gmail.com
+smtp_port: 587
+from_addr: hogehoge@gmail.com
+to_addrs: 
+ - fugafuga@docomo.ne.jp
+ - haguhagu@ezweb.ne.jp
+user: hogehoge@gmail.com
+pass: password 
