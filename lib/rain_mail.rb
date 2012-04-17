@@ -14,7 +14,7 @@ class RainMail
 	# 参考: http://d.hatena.ne.jp/yonetin/20120118/1326896786
 	# http://d.hatena.ne.jp/gan2/20070604/1180974366
 	def forecast_weather
-		uri = "http://weather.livedoor.com/forecast/webservice/rest/v1?city=70&day=today"
+		uri = "http://weather.livedoor.com/forecast/webservice/rest/v1?city=70&day=tomorrow"
 		doc = nil
 		begin
 			open(uri) do |uri|
@@ -29,7 +29,7 @@ class RainMail
 	end
 
 	def send_mail(subject, body)
-		conf ||= YAML.load_file('./config.yaml')
+		conf ||= YAML.load_file(File.dirname(__FILE__) + '/config.yaml')
 		smtp_server = conf['smtp_server']
 		smtp_port   = conf['smtp_port']
 		from_addr   = conf['from_addr']
