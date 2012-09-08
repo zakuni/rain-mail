@@ -56,8 +56,11 @@ end
 
 rain_mail = RainMail.new
 weather = rain_mail.forecast_weather
+subject_body = { "明日#{weather}らしいから" => "洗濯物干さないほうがよいよ。どちらでもよいよ。\nhttp://weather.livedoor.com/area/14/70.html",
+                 "明日いつから#{weather}なの?" => "明日の天気はもう、生まれたて。 \nhttp://weather.livedoor.com/area/14/70.html"}
+
 if rain_mail.rainy? weather then
-  subject = "明日#{weather}らしいから"
-  body    = "洗濯物干さないほうがよいよ。どちらでもよいよ。\nhttp://weather.livedoor.com/area/14/70.html"
+  subject = subject_body.keys[rand(subject_body.length)]
+  body = subject_body[subject]
   rain_mail.send_mail(subject, body)
 end
