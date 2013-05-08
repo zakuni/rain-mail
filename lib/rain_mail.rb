@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 require 'yaml'
-require 'open-uri'
-require 'rexml/document'
 require 'kconv'
 require 'net/smtp'
 
@@ -33,8 +31,8 @@ end
 
 tomorrow = WeatherReport.get("横浜").tomorrow
 
-subject_body = { "明日#{tomorrow.telop}らしいから" => "洗濯物干さないほうがよいよ。どちらでもよいよ。\nhttp://weather.livedoor.com/area/14/70.html",
-                 "明日いつから#{tomorrow.telop}なの?" => "明日の天気はもう、生まれたて。 \nhttp://weather.livedoor.com/area/14/70.html" }
+subject_body = { "明日#{tomorrow.telop}らしいから" => "洗濯物干さないほうがよいよ。どちらでもよいよ。\n#{tomorrow.link}",
+                 "明日いつから#{tomorrow.telop}なの?" => "明日の天気はもう、生まれたて。 \n#{tomorrow.link}" }
 
 if tomorrow.umbrella? then
   subject = subject_body.keys[rand(subject_body.length)]
