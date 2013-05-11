@@ -3,6 +3,7 @@
 require 'yaml'
 require 'kconv'
 require 'net/smtp'
+require 'weather-report'
 
 def send_mail(subject, body)
   conf ||= YAML.load_file(File.dirname(__FILE__) + '/config.yaml')
