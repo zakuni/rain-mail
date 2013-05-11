@@ -30,10 +30,11 @@ EOS
   end
 end
 
-tomorrow = WeatherReport.get("横浜").tomorrow
+weather = WeatherReport.get("横浜")
+tomorrow = weather.tomorrow
 
-subject_body = { "明日#{tomorrow.telop}らしいから" => "洗濯物干さないほうがよいよ。どちらでもよいよ。\n#{tomorrow.link}",
-                 "明日いつから#{tomorrow.telop}なの?" => "明日の天気はもう、生まれたて。 \n#{tomorrow.link}" }
+subject_body = { "明日#{tomorrow.telop}らしいから" => "洗濯物干さないほうがよいよ。どちらでもよいよ。\n#{weather.link}",
+                 "明日いつから#{tomorrow.telop}なの?" => "明日の天気はもう、生まれたて。 \n#{weather.link}" }
 
 if tomorrow.umbrella? then
   subject = subject_body.keys[rand(subject_body.length)]
