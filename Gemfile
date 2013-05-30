@@ -1,6 +1,2 @@
 source "http://rubygems.org"
-gem "rspec"
-gem "ZenTest"
-gem "autotest-fsevent"
-gem "autotest-growl"
 gem "weather-report"
